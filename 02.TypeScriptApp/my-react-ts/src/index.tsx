@@ -3,30 +3,44 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import StateBasic from './chap03/StateBasic';
-import StyledPanel from './chap03/StyledPanel';
-import ListTemplate from './chap03/ListTemplate';
-import books from './chap03/books';
-import { Book } from './chap03/Book';
+import StateBasic from './hookSample/StateBasic';
+import StyledPanel from './hookSample/StyledPanel';
+import ListTemplate from './hookSample/ListTemplate';
+import MyThemeProvider from './hookSample/MyThemeProvider';
+import HookThemeButton from './hookSample/HookThemeButton';
+import HookReducerUp from './hookSample/HookReducerUp';
+import books from './hookSample/books';
+import { Book } from './hookSample/Book';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
 root.render(
-  <ListTemplate
-    src={books} 
-    children={(elem: Book) => 
-      <>
-        <dt>
-          <a href={`https://wings.msn.to/books/${elem.isbn}/${elem.isbn}.jpg`}>
-            {elem.title}（{elem.price}円）
-          </a>
-        </dt>
-      </>
-    }
-  />
+  <HookReducerUp init={0}/>
 )
+
+// root.render(
+//   <MyThemeProvider>
+//     <HookThemeButton />
+//   </MyThemeProvider>
+
+// )
+
+// root.render(
+//   <ListTemplate
+//     src={books} 
+//     children={(elem: Book) => 
+//       <>
+//         <dt>
+//           <a href={`https://wings.msn.to/books/${elem.isbn}/${elem.isbn}.jpg`}>
+//             {elem.title}（{elem.price}円）
+//           </a>
+//         </dt>
+//       </>
+//     }
+//   />
+// )
 
 // root.render(
 //   <StyledPanel>
